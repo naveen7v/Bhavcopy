@@ -11,4 +11,7 @@ for eg: if you need data from Nov 10, 2017
         write the date as 2017-11-10 (in yyyy-mm-dd format) 
 
 From that file(log.txt) this script keeps track of the last downloaded date
-and when you run this script again it will auto download the EOD, index & Futures data.
+and when you run this script again it will auto download the EOD, index & Futures data
+from that date till today.
+
+Note: NSE doesnt allow scripts to download data for more than 1 year

@@ -22,7 +22,9 @@ Note: NSE doesnt allow scripts to download data for more than 1 year
 
 **EOD_charts.py**
 
-This script lets you plot stock prices on the fly from Yahoo Finance
+This script lets you plot stock prices on the fly in your browser 
+
+from Yahoo Finance using Dash-Plotly modules.
 
 No adjustment for the price is needed. This script makes use get_yahoo.py to get price data
 

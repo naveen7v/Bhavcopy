@@ -15,3 +15,23 @@ and when you run this script again it will auto download the EOD, index & Future
 from that date till today.
 
 Note: NSE doesnt allow scripts to download data for more than 1 year
+
+
+
+
+EOD_charts.py
+
+This script lets you plot stock prices on the fly from Yahoo Finance
+
+No adjustment for the price is needed. This script makes use get_yahoo.py to get price data
+
+to plot the graphs.
+
+
+
+get_yahoo.py
+
+This script is a modified version from
+http://blog.bradlucas.com/posts/2017-06-02-new-yahoo-finance-quote-download-url/
+
+You can use this file to download stock prices 

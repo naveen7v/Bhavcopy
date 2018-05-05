@@ -1,4 +1,5 @@
-# Bhavcopy
+**Bhavcopy**
+
 Pythonic version bhavcopy. Downloads the EOD data from the last downloaded date.
 This script pulls the data from NSE site.
 
@@ -19,7 +20,7 @@ Note: NSE doesnt allow scripts to download data for more than 1 year
 
 
 
-EOD_charts.py
+**EOD_charts.py**
 
 This script lets you plot stock prices on the fly from Yahoo Finance
 
@@ -29,7 +30,7 @@ to plot the graphs.
 
 
 
-get_yahoo.py
+**get_yahoo.py**
 
 This script is a modified version from
 http://blog.bradlucas.com/posts/2017-06-02-new-yahoo-finance-quote-download-url/

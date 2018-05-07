@@ -22,9 +22,11 @@ Note: NSE doesnt allow scripts to download data for more than 1 year
 
 **EOD_charts.py**
 
-This script lets you plot stock prices on the fly in your browser 
+This script lets you plot NSE stock prices(India) on the fly in your browser 
 
 from Yahoo Finance using Dash-Plotly modules.
+
+For other exchange stocks just input the correct extension ,that is available from Yahoo Finance.
 
 No adjustment for the price is needed. This script makes use get_yahoo.py to get price data
 

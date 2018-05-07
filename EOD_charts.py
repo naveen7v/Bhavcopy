@@ -16,7 +16,6 @@ from get_yahoo import download_quotes
 import pandas as pd
 import numpy as np
 import re
-import plotly
 import requests
 from datetime import timedelta
 
@@ -24,8 +23,9 @@ import dash
 import dash_html_components as html
 import dash_core_components as dcc
 from dash.dependencies import Output, Input
-import plotly.tools as tls
 
+import plotly
+import plotly.tools as tls
 
 from subprocess import run, PIPE
 from io import StringIO
@@ -65,6 +65,8 @@ app.layout = html.Div([
               [Input('stock_input', 'value')]
               )
 def cache(stock):
+    # The '.NS' is for NSE stocks, for other exchange stocks just input the correct extension ,
+    # that is available from Yahoo Finance.
     df = download_quotes(stock+'.NS', write_to_file = False)
     df = df.dropna()
     df = df.reset_index(drop = True)
@@ -127,7 +129,7 @@ def gr2(json_data,graphtype):
     df['LowerBand'] = df['20 DMA']-(df['Adj Close'].rolling(window=20).std()*2)
     
 
-    if graphtype==1: # Bollinger bands
+    if graphtype==1: # Bollinger bands indicator
         traces1 = []
         
         traces1.append(plotly.graph_objs.Scatter(x = df.DateTime, y = df['Adj Close'], 
@@ -145,7 +147,13 @@ def gr2(json_data,graphtype):
                                        
         return {'data': traces1, 'layout':layout1}
      
-    elif graphtype==2: # Swing
+    elif graphtype==2: # Swing level indicator
+        
+        # This indicator is got from http://www.vfmdirect.com/kplswing/index.html
+        # The souce code for this - http://www.vfmdirect.com/kplswing/kpl_swing.afl
+        # 
+        # In simple words this is a break-out trading strategy.
+        
         res=df['High'].rolling(window= 20).max()
         sup=df['Low'].rolling(window= 20).min()
 

@@ -17,7 +17,7 @@ from that date till today.
 
 Note: NSE doesnt allow scripts to download data for more than 1 year 
 
-**Update on 2021-04-20 : NSE India has changed its webpage and its hard to scrape data from it**
+**Update on 2021-04-20 : NSE India has changed its webpage and its hard to scrape data from it.**
 **This change seems have happened from the start of 2021**
 
 

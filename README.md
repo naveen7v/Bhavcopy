@@ -15,7 +15,9 @@ From that file(log.txt) this script keeps track of the last downloaded date
 and when you run this script again it will auto download the EOD, index & Futures data
 from that date till today.
 
-Note: NSE doesnt allow scripts to download data for more than 1 year
+Note: NSE doesnt allow scripts to download data for more than 1 year 
+
+**Update on 2021-04-20 : NSE India has changed its webpage and its hard to scrape data from it**
 
 
 

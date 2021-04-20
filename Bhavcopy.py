@@ -54,12 +54,15 @@ for i in range(1,diff.days+1):
         
         indices = requests.get('https://nseindia.com/content/indices/ind_close_all_'+d+m+y+'.csv').content
 
-        if len(indices)>300:  #sometimes nse doesnt give the index file, so the if condition
+        #sometimes nse doesnt give the index file, so the if condition
+        if len(indices)>300:
             indx = pd.read_csv(io.StringIO(indices.decode('utf-8'))) #reading content of indices csv and storing in DataFrame using io module
-        	indx.to_csv(base+y+'/Index/Indices'+ str(nextdt.date())+'.csv', index=False)
-        	indx[['Index Name', 'Index Date', 'Open Index Value', 'High Index Value', 'Low Index Value', 'Closing Index Value', 'Volume']]
-        	indx = indx.rename(columns={'Index Name' : 'SYMBOL', 'Index Date' : 'TIMESTAMP', 'Open Index Value' : 'OPEN', 'High Index Value' : 'HIGH', 'Low Index Value' : 'LOW', 'Closing Index Value' : 'CLOSE', 'Volume' : 'TOTTRDQTY'})
-          	f=f.append(indx, ignore_index=True)
+            indx.to_csv(base+y+'/Index/Indices'+ str(nextdt.date())+'.csv', index=False)
+            indx[['Index Name', 'Index Date', 'Open Index Value', 'High Index Value', 'Low Index Value', 'Closing Index Value', 'Volume']]
+            
+            indx = indx.rename(columns={'Index Name' : 'SYMBOL', 'Index Date' : 'TIMESTAMP', 'Open Index Value' : 'OPEN', 'High Index Value' : 'HIGH',
+                                        'Low Index Value' : 'LOW', 'Closing Index Value' : 'CLOSE', 'Volume' : 'TOTTRDQTY'})
+            f=f.append(indx, ignore_index=True)
         
         f['TIMESTAMP'] = pd.Series(str(nextdt.date().strftime('%Y%m%d')) for _ in range(len(f)))
         f = f[['SYMBOL', 'TIMESTAMP', 'OPEN', 'HIGH', 'LOW', 'CLOSE', 'TOTTRDQTY', 'DELIVERABLE']]
